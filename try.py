@@ -50,7 +50,7 @@ def find_imgs(page_url):
     if b!=-1:
         img_addrs.append(html[a+9:b+4])#只要地址
     else:#没有找到时，b的位置应该变，否则会每次循环同一个位置，因为下面的a的下一次循环开始位置用到b
-        b=a+9
+        b=a+9 
     
     #下一次开始找从上一次的结束为止开始
     a=html.find('img src',b)

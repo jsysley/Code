@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Mon Sep 26 22:55:31 2016
+
+@author: jsysley
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Sun Sep 25 10:59:13 2016
 
 @author: jsysley
@@ -9,6 +16,7 @@ import urllib.request
 import urllib.parse
 import json
 import time
+import random
 
 while True:
     content=input('请输入要翻译的内容(输入q退出程序)： ')
@@ -37,8 +45,18 @@ while True:
     #对data编码
     data=urllib.parse.urlencode(data).encode('utf-8')#encode()把Unicode文件编码成其他形式
     
+    #隐藏ip
+    iplist=['119.166.135.37:81','182.203.2.36:8888','223.166.8.220:8888']#创建ip列表，下面随机用ip
+    proxy_support=urllib.request.ProxyHandler({'http':random.choice(iplist)})
+    #proxy_support=urllib.request.ProxyHandler({'http':'119.166.135.37:81'})
+    opener=urllib.request.build_opener(proxy_support)#生成opener
+
+    #urllib.request.install_opener(opener)#安装opener
+     
+    
     req=urllib.request.Request(url,data,head)
-    response=urllib.request.urlopen(req)
+    response=opener.open(req)   
+    #response=urllib.request.urlopen(req)
      
     html=response.read().decode('utf-8')#decode()把其他文件变成Unicode编码形式
     

@@ -15,14 +15,18 @@ def url_open(url):
     req=urllib.request.Request(url)#进入网址
     #伪装客户端
     req.add_header('User-Agent','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36')
+    
     #代理ip
-    #iplist=['119.6.144.73:81','183.203.208.166:8118','111.1.32.28:81']#创建ip列表，下面随机用ip
+    #iplist=['119.166.135.37:81','182.203.2.36:8888','223.166.8.220:8888']#创建ip列表，下面随机用ip
     #proxy_support=urllib.request.ProxyHandler({'http':random.choice(iplist)})
+    #proxy_support=urllib.request.ProxyHandler({'http':'119.166.135.37:81'})
     #opener=urllib.request.build_opener(proxy_support)#生成opener
 
-
+    #urllib.request.install_opener(opener)#安装opener
     #response=opener.open(req)
-    response=urllib.request.urlopen(req)    
+
+
+    response=urllib.request.urlopen(req) 
     html=response.read()#因为下面图片要用这个函数，图片decode的话格式不对，因此这里不decde
     
     return html
@@ -79,7 +83,7 @@ def save_imgs(folder,img_addrs):
             img=url_open(each)
             f.write(img)
 
-def download_mm(folder="ooxx",pages=10):#文件夹名字，下载前10页
+def download_mm(folder="ooxx",pages=5):#文件夹名字，下载前10页
     os.mkdir(folder)#创建文件夹
     os.chdir(folder)#进入这个目录，下面下载图片就进到这个文件夹
 

@@ -42,7 +42,7 @@ while True:
     data['action']='FY_BY_CLICKBUTTON'
     data['typoResult']='true'
     
-    #对data编码
+    #对data编码,post方法的data对象必须这样处理
     data=urllib.parse.urlencode(data).encode('utf-8')#encode()把Unicode文件编码成其他形式
     
     #隐藏ip

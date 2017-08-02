@@ -51,3 +51,4 @@ while True:
     print(target['translateResult'][0][0]['tgt'])
     
     time.sleep(5)#5秒
+    

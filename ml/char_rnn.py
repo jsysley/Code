@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
 """
-Minimal character-level Vanilla RNN model. 
-BSD License
+Created on Tue May 16 18:52:25 2017
+@author: jsysley
 """
+# Minimal character-level Vanilla RNN model. 
+
 import numpy as np
 
 # data I/O

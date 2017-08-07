@@ -1,4 +1,4 @@
-__author__ = 'jarodyv'
+__author__ = 'jsysley'
 
 import scrapy
 from scrapy.http import Request
